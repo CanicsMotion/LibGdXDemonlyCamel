@@ -1,12 +1,10 @@
 package com.CanicsMotion.LibGdXDemonlyCamel;
 
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-
-import javafx.scene.input.KeyCode;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.Matrix4;
 
 public class Player {
 	public Vector pos = Vector.ZERO;
@@ -23,7 +21,9 @@ public class Player {
 	}
 	
 	public void Draw(SpriteBatch batch){
-		batch.draw(img,pos.x, pos.y);
+		Matrix4 mx= batch.getTransformMatrix();
+		mx.translate(pos.x,pos.y,0);
+		batch.draw(img,0,0 );
 	}
 	
 	public void Update(){
