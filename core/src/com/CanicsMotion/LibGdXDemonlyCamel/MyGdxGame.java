@@ -5,6 +5,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.Window;
+import com.sun.java.swing.plaf.windows.resources.windows;
 
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
@@ -39,4 +41,5 @@ public class MyGdxGame extends ApplicationAdapter {
     public void dispose() {
         batch.dispose();
     }
+    /// Das War Janek
 }
