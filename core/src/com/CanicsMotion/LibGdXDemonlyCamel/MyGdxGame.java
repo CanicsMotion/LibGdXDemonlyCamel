@@ -11,21 +11,20 @@ import javafx.scene.transform.Translate;
 
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
+	Texture img;
 	
-	Player player;
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
-		player = new Player(5,5);
+		img = new Texture("badlogic.jpg");
 	}
 
 	@Override
 	public void render () {
-		player.Controll();
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
-		player.Draw(batch);
+		batch.draw(img, 0, 0);
 		batch.end();
 	}
     @Override

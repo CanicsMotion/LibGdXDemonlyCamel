@@ -1,5 +1,6 @@
 package com.CanicsMotion.LibGdXDemonlyCamel;
 
+<<<<<<< HEAD
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
@@ -43,4 +44,8 @@ public class Player {
 			pos.x+=speed;
 		}
 	}
+=======
+public class Player {
+	public Vector pos = new Vector(2,3);
+>>>>>>> origin/master
 }
