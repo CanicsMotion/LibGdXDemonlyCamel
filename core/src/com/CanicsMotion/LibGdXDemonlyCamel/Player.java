@@ -1,51 +1,56 @@
 package com.CanicsMotion.LibGdXDemonlyCamel;
 
-<<<<<<< HEAD
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Vector2;
 
-public class Player {
-	public Vector pos = Vector.ZERO;
+public class Player extends Sprite{
 	Texture img;
 	public float speed = 2;
+	private Vector2 position;
 	
 	public Player(float _x ,float _y){
-		pos = new Vector(_x,_y);
-		img = new Texture("badlogic.jpg");
+		super(new Texture("badlogic.jpg"));
+		setPosition(new Vector2(_x,_y));
 	}
-	public Player(Vector v){
-		pos = v;
-		img = new Texture("badlogic.jpg");
+	public Player(Vector2 v){
+		super(new Texture("badlogic.jpg"));
+		setPosition(v);
 	}
 	
 	public void Draw(SpriteBatch batch){
-		Matrix4 mx= batch.getTransformMatrix();
-		mx.translate(pos.x,pos.y,0);
-		batch.draw(img,0,0 );
+		this.draw(batch);
 	}
 	
 	public void Update(){
 		
 	}
 	public void Controll(){
+		Vector2 mov = new Vector2(0,0);
 		if(Gdx.input.isKeyPressed(Input.Keys.W)){
-			pos.y+=speed;
+			mov.add( new Vector2(0,1));
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.S)){
-			pos.y-=speed;
+			mov.add( new Vector2(0,-1));
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.A)){
-			pos.x-=speed;
+			mov.add( new Vector2(-1,0));
 		}
 		if(Gdx.input.isKeyPressed(Input.Keys.D)){
-			pos.x+=speed;
+			mov.add( new Vector2(1,0));
 		}
+		mov.nor();
+		setPosition(position.add( mov.mulAdd(mov, speed)));
 	}
-=======
-public class Player {
-	public Vector pos = new Vector(2,3);
->>>>>>> origin/master
+	public Vector2 getPosition() {
+		return position;
+	}
+	public void setPosition(Vector2 position) {
+		this.position = position;
+		this.setX(position.x);
+		this.setY(position.y);
+	}
 }
